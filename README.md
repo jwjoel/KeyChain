@@ -9,9 +9,11 @@ With the growing popularity of GPT and the increasing importance of APIs, many a
 That's where KeyChain comes into play - it serves as a reliable and well-structured solution for users to securely store and efficiently manage their API keys.
 ## Features
 
-- Securely store API keys in your browser's local storage
-- Fetch API keys with a simple click
-- View key expiration dates at a glance
+- 🛡️ **Securely store API keys** in your browser's local storage
+- ⚡ **Fetch API keys quickly** with just a simple click
+- 📅 **Easily view key expiration dates** at a glance
+- ☁️ **Seamless sync** with Google Drive, OneDrive, and Amazon S3
+- 🔒 **Robust encryption** using Web Crypto API for maximum security
 
 ## Banner
 <img src="https://github.com/jwjoel/KeyChain/blob/main/assets/banner.png" alt="banner"/>
