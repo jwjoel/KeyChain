@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/popup.css" />
+    <script defer src="js/storage.js"></script>
+    <script defer src="js/popup.js"></script>
+  </head>
+
+  <body>
+    <div id="popup-notification" class="popup-notification" style="display:none;">
+      <span id="popup-text"></span>
+    </div>
+    
+    <div class="main-wrapper">
+      <div class="form-wrapper">
+        <div class="fixed-container">
+          <div class="title">
+            <h3>Key Chain</h3>
+            <p>Storage your API Keys</p>
+          </div>
+          <div class="steps">
+            <ul>
+              <li class="step-menu1 active">
+                <span>K</span>
+                Key List
+              </li>
+              <li class="step-menu2">
+                <span>A</span>
+                Add Key
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="title-block"></div>
+        <div class="form-step-1 active">
+          <div id="keys-list"></div>
+        </div>
+
+        <div class="form-step-2">
+          <form id="add-key-form">
+            <div>
+              <label for="source" class="form-label">Platform</label>
+              <input
+                type="text"
+                id="source"
+                required
+                class="form-input"
+                placeholder="Platform"
+              />
+            </div>
+
+            <div class="form-input-container">
+              <label for="key" class="form-label">API Key</label>
+              <input
+                type="text"
+                id="key"
+                required
+                class="form-input"
+                placeholder="API Key"
+              />
+            </div>
+
+            <div class="form-input-container">
+              <label for="expiration-option" class="form-label"
+                >Expiration</label
+              >
+              <select id="expiration-option" class="form-input">
+                <option value="never">Never</option>
+                <option value="10">10 Days</option>
+                <option value="30">1 Month</option>
+                <option value="180">6 Months</option>
+                <option value="custom">Custom</option>
+              </select>
+            </div>
+
+            <div class="form-input-container">
+              <input
+                type="date"
+                id="expiration"
+                style="display: none"
+                class="form-input"
+              />
+            </div>
+
+            <div class="form-btn-wrapper">
+              <button type="submit" class="btn">Add Key</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
