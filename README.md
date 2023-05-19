@@ -1,6 +1,8 @@
+![banner](https://github.com/jwjoel/KeyChain/blob/main/assets/banner.png).
+
 # KeyChain
 
-KeyChain is a browser extension that helps you store and manage your API keys securely and locally in your browser. It provides an easy-to-use interface for adding, deleting, and copying API keys. With KeyChain, you no longer need to worry about keeping track of your API keys in text files, spreadsheets, or other unsafe locations. Keep your keys organized and secure with KeyChain!
+KeyChain is a browser extension that helps you store and manage your API keys securely and locally in your browser. It provides an easy-to-use interface for adding, deleting, and copying API keys. With KeyChain, you no longer need to worry about keeping track of your API keys in text files, spreadsheets, or other unsafe locations. Keep your keys organized and secure with KeyChain
 
 ## Features
 
