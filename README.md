@@ -13,7 +13,7 @@ KeyChain is a browser extension that helps you store and manage your API keys se
 - Delete keys when no longer needed
 - Tabbed interface for easy navigation
 
-## Future
+## Roadmap
 
 - [ ] Integration with Google Drive, OneDrive, and Amazon S3 for cloud syncing
 - [ ] Encrypted export of API keys
@@ -44,16 +44,6 @@ KeyChain is a browser extension that helps you store and manage your API keys se
 2. Use the "Key List" tab to view your stored keys. If no keys are stored, an "empty message" will be displayed.
 
 3. Click the "Add Key" tab to add a new API key.
-
-4. Fill in the "Platform" and "API Key" fields, and choose an expiration option from the dropdown menu. Optionally, set a custom expiration date if desired.
-
-5. Click the "Add Key" button to save your new API key.
-
-6. To copy a stored key to the clipboard, click the copy icon next to the key.
-
-7. To delete a stored key, click the delete icon next to the key.
-
-8. The extension will display a popup notification for successful copy actions or other relevant events.
 
 ## Contributing
 
