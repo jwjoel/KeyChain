@@ -6,7 +6,7 @@
 ## Why KeyChain
 With the growing popularity of GPT and the increasing importance of APIs, many applications rely on API keys to function. However, most people may struggle with managing their API keys effectively - they may not know when their keys expire, forget the keys they've generated before, or constantly regenerate keys, which is time-consuming and susceptible to leaks.
 
-That's why people need tools like KeyChain - to provide a secure and organized way for users to store and manage their API keys.
+That's where KeyChain comes into play - it serves as a reliable and well-structured solution for users to securely store and efficiently manage their API keys.
 ## Features
 
 - Securely store API keys in your browser's local storage
