@@ -54,6 +54,12 @@ That's where KeyChain comes into play - it serves as a reliable and well-structu
 
 Feel free to open issues or submit pull requests for bug fixes or feature requests.
 
+### Contributors
+<a href="https://github.com/jwjoel/KeyChain/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=jwjoel/KeyChain" />
+</a>
+
 ## License
 
 This project is released under the [MIT License](https://opensource.org/licenses/MIT).
+
