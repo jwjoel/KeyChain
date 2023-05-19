@@ -11,7 +11,6 @@ That's where KeyChain comes into play - it serves as a reliable and well-structu
 
 - Securely store API keys in your browser's local storage
 - Fetch API keys with a simple click
-- Add custom expiration dates
 - View key expiration dates at a glance
 
 ## Banner
