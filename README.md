@@ -1,9 +1,7 @@
 # KeyChain
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
-Keep your API Keys organized and secure with KeyChain.
-
-<img src="https://github.com/jwjoel/KeyChain/blob/main/assets/banner.png" alt="banner"/>
+> Keep your API Keys organized and secure.
 
 ## Features
 
@@ -13,6 +11,9 @@ Keep your API Keys organized and secure with KeyChain.
 - View key expiration dates at a glance
 - Delete keys when no longer needed
 - Tabbed interface for easy navigation
+
+## Banner
+<img src="https://github.com/jwjoel/KeyChain/blob/main/assets/banner.png" alt="banner"/>
 
 ## Roadmap
 
