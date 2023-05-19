@@ -1,4 +1,4 @@
-![banner](https://github.com/jwjoel/KeyChain/blob/main/assets/banner.png).
+![banner](https://github.com/jwjoel/KeyChain/blob/main/assets/banner.png =500).
 
 # KeyChain
 
