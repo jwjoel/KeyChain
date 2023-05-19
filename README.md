@@ -1,4 +1,4 @@
-<img src="https://github.com/jwjoel/KeyChain/blob/main/assets/banner.png" width = "1000" height = "200" alt="图片名称" align=center/>
+<img src="https://github.com/jwjoel/KeyChain/blob/main/assets/banner.png" width = "1000" alt="图片名称"/>
 
 # KeyChain
 
