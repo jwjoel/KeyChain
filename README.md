@@ -15,6 +15,7 @@ That's where KeyChain comes into play - it serves as a reliable and well-structu
 - ☁️ **Seamless sync** with Google Drive, OneDrive, and Amazon S3
 - 🔒 **Robust encryption** using Web Crypto API for maximum security
 
+## Banner
 <img src="https://github.com/jwjoel/KeyChain/blob/main/assets/banner.png" alt="banner"/>
 
 ## Roadmap
