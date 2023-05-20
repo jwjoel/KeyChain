@@ -14,8 +14,6 @@ function arrayBufferToBase64(buffer) {
   }
 
 const keyStorage = new KeyStorage();
-
-
 async function handleExport() {
   const exportData = await keyStorage.exportEncryptedKeys();
   const dataJSON = JSON.stringify(exportData);
