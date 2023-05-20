@@ -1,3 +1,5 @@
+<img src="https://github.com/jwjoel/KeyChain/blob/main/assets/1400560.png" alt="banner" width="80%"/>
+
 # KeyChain
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
@@ -14,10 +16,6 @@ That's where KeyChain comes into play - it serves as a reliable and well-structu
 - 📅 **Easily view key expiration dates** at a glance
 - ☁️ **Seamless sync** with Google Drive, OneDrive, and Amazon S3
 - 🔒 **Robust encryption** using Web Crypto API for maximum security
-
-## Example
-
-<img src="https://github.com/jwjoel/KeyChain/blob/main/assets/1400560.png" alt="banner" width="80%"/>
 
 ## Roadmap
 
