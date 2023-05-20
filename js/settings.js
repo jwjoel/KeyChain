@@ -17,7 +17,6 @@ const keyStorage = new KeyStorage();
 async function handleExport() {
   const exportData = await keyStorage.exportEncryptedKeys();
   const dataJSON = JSON.stringify(exportData);
-  console.log("dataset", dataJSON)
   const blob = new Blob([dataJSON], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");

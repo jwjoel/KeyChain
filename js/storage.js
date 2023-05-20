@@ -16,7 +16,6 @@ class KeyStorage {
       });
       db.createObjectStore(this.keyStoreName, { keyPath: "id" });
     };
-    console.log(request);
     request.onsuccess = (event) => {
       const db = event.target.result;
       const keyTransaction = db.transaction(this.keyStoreName);
@@ -98,7 +97,6 @@ class KeyStorage {
 
   async exportEncryptedKeys() {
     const keys = await this.getEncryptedKeys();
-    console.log(keys)
     const encryptedKeys = [];
 
     for (const key of keys) {
@@ -106,8 +104,8 @@ class KeyStorage {
         id: key.id,
         source: key.source,
         key: {
-          ciphertext: arrayBufferToBase64(key.key.ciphertext), // 使用 base64 编码
-          iv: arrayBufferToBase64(key.key.iv), // 使用 base64 编码
+          ciphertext: arrayBufferToBase64(key.key.ciphertext),
+          iv: arrayBufferToBase64(key.key.iv),
         },
         expiration: key.expiration,
       };
@@ -133,17 +131,20 @@ class KeyStorage {
       ["encrypt", "decrypt"]
     );
     this.encryptionKey = importedKey;
+    const keyRequest = indexedDB.open(this.dbName);
+    keyRequest.onsuccess = (event) => {
+      const db = event.target.result;
+      const transaction = db.transaction(this.keyStoreName, "readwrite");
+      const objectStore = transaction.objectStore(this.keyStoreName);
+      objectStore.put({ id: 1, key: data.encryptionKey });
+    };
     await this.removeAllKeys();
-    console.log(this.encryptionKey)
-    console.log(data)
     for (const key of data.keys) {
-      console.log(key)
       const decryptedApikey = await this.decrypt(
         base64ToArrayBuffer(key.key.ciphertext),
         base64ToArrayBuffer(key.key.iv),
         this.encryptionKey
       );
-      console.log(decryptedApikey)
       const keyInfo = {
         id: key.id,
         source: key.source,
@@ -246,35 +247,46 @@ class KeyStorage {
 
   async getKeys() {
     return new Promise((resolve, reject) => {
-      const request = indexedDB.open(this.dbName);
-      request.onsuccess = (event) => {
-        const db = event.target.result;
-        const transaction = db.transaction(this.objectStoreName);
-        const objectStore = transaction.objectStore(this.objectStoreName);
-        const keys = [];
-        
-        objectStore.openCursor().onsuccess = (event) => {
-          const cursor = event.target.result;
-          if (cursor) {
-            keys.push(cursor.value);
-            cursor.continue();
-          }
+      try {
+        const request = indexedDB.open(this.dbName);
+  
+        request.onerror = (event) => {
+          reject(new Error('Unable to open DB'));
         };
   
-        transaction.oncomplete = async () => {
-          console.log(1)
-          for (const key of keys) {
-            console.log(key.key)
-            key.key = await this.decrypt(key.key.ciphertext, key.key.iv, this.encryptionKey);
-            console.log(key.key)
-          }
-          resolve(keys);
-        };
+        request.onsuccess = (event) => {
+          const db = event.target.result;
+          const transaction = db.transaction(this.objectStoreName);
+          const objectStore = transaction.objectStore(this.objectStoreName);
+          const keys = [];
   
-        transaction.onerror = () => reject(transaction.error);
-      };
+          objectStore.openCursor().onsuccess = (event) => {
+            const cursor = event.target.result;
+            if (cursor) {
+              keys.push(cursor.value);
+              cursor.continue();
+            }
+          };
+  
+          transaction.oncomplete = async () => {
+            try {
+              for (const key of keys) {
+                key.key = await this.decrypt(key.key.ciphertext, key.key.iv, this.encryptionKey);
+              }
+              resolve(keys);
+            } catch (error) {
+              reject(new Error('Decrypt error:' + error));
+            }
+          };
+  
+          transaction.onerror = () => reject(transaction.error);
+        };
+      } catch (error) {
+        reject(new Error('DB Operation error:' + error));
+      }
     });
   }
+  
 
   async removeKey(id) {
     return new Promise((resolve, reject) => {

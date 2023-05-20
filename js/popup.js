@@ -73,7 +73,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 async function displayKeys() {
   const keysList = document.getElementById("keys-list");
   const keys = await keyStorage.getKeys();
-  console.log("main", keys)
   keys.reverse();
   keysList.innerHTML = "";
   if (keys.length === 0) {
