@@ -29,7 +29,7 @@ That's where KeyChain comes into play - it serves as a reliable and well-structu
 
 ## Installation
 
-Search for KeyChain in the Google Chrome App Store or
+Search for [KeyChain](https://chrome.google.com/webstore/detail/keychain/oahaommahieejlnckcacdggkecikkebg?hl=en&authuser=0) in the Google Chrome App Store or
 
 1. Clone the repository or download the source code:
 
