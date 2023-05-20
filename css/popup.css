@@ -74,11 +74,11 @@ body {
   margin: 0;
   list-style: none;
   display: flex;
-  gap: 35px;
+  gap: 0px;
 }
 
 .steps li {
-    cursor: pointer;
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -86,7 +86,7 @@ body {
   font-size: 16px;
   line-height: 24px;
   color: #536387;
-  width: 110px;
+  width: 120px;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
@@ -347,59 +347,58 @@ body {
 }
 
 .empty-message {
-    color: #536387;
+  color: #536387;
 }
 
 .popup-notification {
-    position: fixed;
-    top: 30px;
-    right: -10px;
-    background-color: rgb(90, 161, 88);
-    border-radius: 4px;
-    width: 80px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-  }
-  
-  #popup-text {
-    color: white;
-    padding-left: 15px;
-    line-height: 30px;
-    font-size: 13px;
-  }
-  
-  #expiration {
-    transition: all 0.3s ease;
-  }
+  position: fixed;
+  top: 30px;
+  right: -10px;
+  background-color: rgb(90, 161, 88);
+  border-radius: 4px;
+  width: 80px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
 
-  .import-export-buttons {
-    position: fixed;
-    display: flex;
-    bottom: -60px;
-    gap: 10px;
+#popup-text {
+  color: white;
+  padding-left: 15px;
+  line-height: 30px;
+  font-size: 13px;
+}
 
-  }
+#expiration {
+  transition: all 0.3s ease;
+}
 
-  .settings-btn-wrapper {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-  }
-  
-  .settings-btn-wrapper button {
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    color: #6a64f1;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-  }
-  
-  .settings-btn-wrapper :hover {
-    filter: brightness(0.8);
-    transition: 0.5s all;
-  }
+.import-export-buttons {
+  position: fixed;
+  display: flex;
+  bottom: -60px;
+  gap: 10px;
+}
+
+.settings-btn-wrapper {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.settings-btn-wrapper button {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #6a64f1;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.settings-btn-wrapper :hover {
+  filter: brightness(0.8);
+  transition: 0.5s all;
+}

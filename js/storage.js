@@ -139,8 +139,8 @@ class KeyStorage {
     for (const key of data.keys) {
       console.log(key)
       const decryptedApikey = await this.decrypt(
-        base64ToArrayBuffer(key.key.ciphertext), // 使用 base64 解码
-        base64ToArrayBuffer(key.key.iv), // 使用 base64 解码
+        base64ToArrayBuffer(key.key.ciphertext),
+        base64ToArrayBuffer(key.key.iv),
         this.encryptionKey
       );
       console.log(decryptedApikey)
