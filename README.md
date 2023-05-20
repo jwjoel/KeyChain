@@ -24,7 +24,7 @@ That's where KeyChain comes into play - it serves as a reliable and well-structu
 - [ ] Integrate with cloud storage platforms such as Google Drive, OneDrive, and Amazon S3 for syncing
 - [ ] Add automatic detection of API keys from web pages
 - [ ] A web-based version that is accessible on mobile devices.
-- [ ] Anonymous replacement APIs to improve privacy and security (considered as long-term goal).
+- [ ] Anonymous replacement APIs to improve privacy and security (considered as long-term goal)
 
 ## Installation
 
