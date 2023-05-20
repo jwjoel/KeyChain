@@ -79,6 +79,8 @@ API keys are stored as encrypted ciphertext in base64 format. You can separate t
 
 ## Usage
 
+https://github.com/jwjoel/KeyChain/assets/25562443/85afd114-52c0-4862-b57d-715b834ed0a8
+
 ### Add API Key
 
 1. Click the KeyChain icon in your browser's toolbar to open the extension popup.
