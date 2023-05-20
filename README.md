@@ -100,13 +100,13 @@ https://github.com/jwjoel/KeyChain/assets/25562443/85afd114-52c0-4862-b57d-715b8
 ## Contributing
 
 Feel free to open issues or submit pull requests for bug fixes or feature requests.
-
+<!--
 ### Contributors
 
 <a href="https://github.com/jwjoel/KeyChain/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=jwjoel/KeyChain" />
 </a>
-
+-->
 ## License
 
 This project is released under the [MIT License](https://opensource.org/licenses/MIT).
