@@ -19,10 +19,11 @@ That's where KeyChain comes into play - it serves as a reliable and well-structu
 
 ## Roadmap
 
-- [x] Basic interface implementation
-- [x] Encrypted export and import of API keys
-- [ ] Integration with Google Drive, OneDrive, and Amazon S3 for cloud syncing
-- [ ] Generate anonymous replacement API
+- [x] Implement basic user interface
+- [x] Add support for encrypted export and import of API keys
+- [ ] Integrate with cloud storage platforms such as Google Drive, OneDrive, and Amazon S3 for syncing
+- [ ] Add automatic detection of API keys from web pages
+- [ ] Develop functionality to generate anonymous replacement APIs for enhanced privacy and security
 
 ## Installation
 
