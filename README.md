@@ -83,9 +83,9 @@ API keys are stored as encrypted ciphertext in base64 format. You can separate t
 
 1. Click the KeyChain icon in your browser's toolbar to open the extension popup.
 
-2. Use the "Key List" tab to view your stored keys. If no keys are stored, an "empty message" will be displayed.
+2. Use the "Chain" tab to view your stored keys. If no keys are stored, an "empty message" will be displayed.
 
-3. Click the "Add Key" tab to add a new API key.
+3. Click the "AddKey" tab to add a new API key.
 
 ### Export and Import
 
