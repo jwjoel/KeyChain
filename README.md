@@ -1,4 +1,4 @@
-<img src="https://github.com/jwjoel/KeyChain/blob/main/assets/banner.png" alt="banner" width="80%"/>
+<img src="https://github.com/jwjoel/KeyChain/blob/main/assets/header.png" alt="banner" width="80%"/>
 
 # KeyChain
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
