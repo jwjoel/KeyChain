@@ -90,15 +90,13 @@ async function displayKeys() {
           <div class="key-header" data-key="${
             key.key
           }">
+          <div class="key-content" data-key="${key.key}">
             <h5>${key.source}</h5>
-            <div class="key-header-icon">
-              <img src="assets/copy.svg" alt="Copy" class="copy-icon icons" data-key="${
-                key.key
-              }">
-              <img src="assets/delete.svg" alt="Delete" class="delete-icon icons" data-id="${
-                key.id
-              }">
+            <div class="key-header-icons">
+              <img src="assets/copy.svg" alt="Copy" class="copy-icon icons" data-key="${key.key}">
+              <img src="assets/delete.svg" alt="Delete" class="delete-icon icons" data-id="${key.id}">
             </div>
+          </div>
           </div>
           <ul class="copy-ul" data-key="${
             key.key
@@ -120,26 +118,14 @@ async function displayKeys() {
 
       keysList.appendChild(keyElement);
 
-      keyElement
-        .querySelector(".delete-icon")
-        .addEventListener("click", async () => {
-          const id = key.id;
-          await keyStorage.removeKey(id);
-          await displayKeys();
-        });
-
-      keyElement.querySelector(".copy-icon").addEventListener("click", () => {
-        const keyToCopy = key.key;
-        const el = document.createElement("textarea");
-        el.value = keyToCopy;
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand("copy");
-        document.body.removeChild(el);
-        showPopupNotification("Copied");
+      keyElement.querySelector(".delete-icon").addEventListener("click", async (e) => {
+        e.stopPropagation(); // 阻止事件冒泡
+        const id = key.id;
+        await keyStorage.removeKey(id);
+        await displayKeys();
       });
 
-      keyElement.querySelector(".copy-ul").addEventListener("click", () => {
+      keyElement.querySelector(".key-content").addEventListener("click", () => {
         const keyToCopy = key.key;
         const el = document.createElement("textarea");
         el.value = keyToCopy;
@@ -154,14 +140,26 @@ async function displayKeys() {
 }
 
 function showPopupNotification(message) {
-    const popupNotification = document.getElementById("popup-notification");
-    const popupText = document.getElementById("popup-text");
-  
-    popupText.innerText = message;
-    popupNotification.style.display = "block";
-  
-    setTimeout(() => {
-      popupNotification.style.display = "none";
-    }, 2000);
-  }
-  
+  const popupNotification = document.getElementById("popup-notification");
+  const popupText = document.getElementById("popup-text");
+
+  popupText.innerText = message;
+  popupNotification.style.opacity = 0;
+  popupNotification.style.display = "block";
+
+  setTimeout(() => {
+    // Fade in animation
+    popupNotification.style.transition = "opacity 0.5s ease";
+    popupNotification.style.opacity = 1;
+  }, 50);
+
+  setTimeout(() => {
+    // Fade out animation
+    popupNotification.style.transition = "opacity 0.5s ease";
+    popupNotification.style.opacity = 0;
+  }, 2000);
+
+  setTimeout(() => {
+    popupNotification.style.display = "none";
+  }, 2500);
+}
