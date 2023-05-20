@@ -99,20 +99,20 @@ async function displayKeys() {
       keyElement.className = "key-details";
 
       keyElement.innerHTML = `
-          <div class="key-header" data-key="${
-            key.key
-          }">
+          <div class="key-header" data-key="${key.key}">
           <div class="key-content" data-key="${key.key}">
             <h5>${key.source}</h5>
             <div class="key-header-icons">
-              <img src="assets/copy.svg" alt="Copy" class="copy-icon icons" data-key="${key.key}">
-              <img src="assets/delete.svg" alt="Delete" class="delete-icon icons" data-id="${key.id}">
+              <img src="assets/copy.svg" alt="Copy" class="copy-icon icons" data-key="${
+                key.key
+              }">
+              <img src="assets/delete.svg" alt="Delete" class="delete-icon icons" data-id="${
+                key.id
+              }">
             </div>
           </div>
           </div>
-          <ul class="copy-ul" data-key="${
-            key.key
-          }">
+          <ul class="copy-ul" data-key="${key.key}">
             <li>
                 <img src="assets/calendar.svg" alt="Copy" class="copy-icon">
                 ${
@@ -130,12 +130,14 @@ async function displayKeys() {
 
       keysList.appendChild(keyElement);
 
-      keyElement.querySelector(".delete-icon").addEventListener("click", async (e) => {
-        e.stopPropagation(); // 阻止事件冒泡
-        const id = key.id;
-        await keyStorage.removeKey(id);
-        await displayKeys();
-      });
+      keyElement
+        .querySelector(".delete-icon")
+        .addEventListener("click", async (e) => {
+          e.stopPropagation(); // 阻止事件冒泡
+          const id = key.id;
+          await keyStorage.removeKey(id);
+          await displayKeys();
+        });
 
       keyElement.querySelector(".key-content").addEventListener("click", () => {
         const keyToCopy = key.key;

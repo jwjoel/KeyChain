@@ -1,18 +1,18 @@
 {
-    "manifest_version": 3,
-    "name": "KeyChain",
-    "version": "0.1.0",
-    "description": "A browser extension for managing API Keys locally.",
-    "action": {
-        "default_popup": "popup.html"
-    },
-    "permissions": [
-        "storage"
-    ],
-    "icons": { "16":"assets/vault.png",
-           "48": "assets/vault.png",
-          "128": "assets/vault.png" },
-    "content_security_policy": {
-        "extension_pages": "script-src 'self'; object-src 'self'"
-    }
+  "manifest_version": 3,
+  "name": "KeyChain",
+  "version": "0.1.0",
+  "description": "A browser extension for managing API Keys locally.",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage"],
+  "icons": {
+    "16": "assets/vault.png",
+    "48": "assets/vault.png",
+    "128": "assets/vault.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
 }

@@ -1,17 +1,17 @@
 function arrayBufferToBase64(buffer) {
   const byteArray = new Uint8Array(buffer);
   return btoa(String.fromCharCode(...byteArray));
-  }
-  
-  function base64ToArrayBuffer(base64) {
+}
+
+function base64ToArrayBuffer(base64) {
   const binaryString = atob(base64);
   const len = binaryString.length;
   const bytes = new Uint8Array(len);
   for (let i = 0; i < len; i++) {
-  bytes[i] = binaryString.charCodeAt(i);
+    bytes[i] = binaryString.charCodeAt(i);
   }
   return bytes.buffer;
-  }
+}
 
 const keyStorage = new KeyStorage();
 async function handleExport() {
@@ -60,27 +60,27 @@ document
   .getElementById("export-button")
   .addEventListener("click", handleExport);
 
-  function showPopupNotification(message) {
-    const popupNotification = document.getElementById("popup-notification");
-    const popupText = document.getElementById("popup-text");
-  
-    popupText.innerText = message;
+function showPopupNotification(message) {
+  const popupNotification = document.getElementById("popup-notification");
+  const popupText = document.getElementById("popup-text");
+
+  popupText.innerText = message;
+  popupNotification.style.opacity = 0;
+  popupNotification.style.display = "block";
+
+  setTimeout(() => {
+    // Fade in animation
+    popupNotification.style.transition = "opacity 0.5s ease";
+    popupNotification.style.opacity = 1;
+  }, 50);
+
+  setTimeout(() => {
+    // Fade out animation
+    popupNotification.style.transition = "opacity 0.5s ease";
     popupNotification.style.opacity = 0;
-    popupNotification.style.display = "block";
-  
-    setTimeout(() => {
-      // Fade in animation
-      popupNotification.style.transition = "opacity 0.5s ease";
-      popupNotification.style.opacity = 1;
-    }, 50);
-  
-    setTimeout(() => {
-      // Fade out animation
-      popupNotification.style.transition = "opacity 0.5s ease";
-      popupNotification.style.opacity = 0;
-    }, 2000);
-  
-    setTimeout(() => {
-      popupNotification.style.display = "none";
-    }, 2500);
-  }
+  }, 2000);
+
+  setTimeout(() => {
+    popupNotification.style.display = "none";
+  }, 2500);
+}

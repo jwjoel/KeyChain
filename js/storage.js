@@ -82,7 +82,6 @@ class KeyStorage {
   }
 
   async decrypt(ciphertext, iv, key) {
-    
     const decoder = new TextDecoder();
     const decrypted = await crypto.subtle.decrypt(
       {
@@ -112,7 +111,10 @@ class KeyStorage {
       encryptedKeys.push(encryptedKeyInfo);
     }
 
-    const exportedKey = await crypto.subtle.exportKey("jwk", this.encryptionKey);
+    const exportedKey = await crypto.subtle.exportKey(
+      "jwk",
+      this.encryptionKey
+    );
     return {
       keys: encryptedKeys,
       encryptionKey: exportedKey,
@@ -156,15 +158,18 @@ class KeyStorage {
   }
 
   async exportPlainKeys() {
-    let plaintextKeys = await this.getKeys()
-  
-    const exportedKey = await crypto.subtle.exportKey("jwk", this.encryptionKey);
+    let plaintextKeys = await this.getKeys();
+
+    const exportedKey = await crypto.subtle.exportKey(
+      "jwk",
+      this.encryptionKey
+    );
     return {
       keys: plaintextKeys,
-      encryptionKey: exportedKey
+      encryptionKey: exportedKey,
     };
   }
-  
+
   async importPlainKeys(data) {
     const importedKey = await crypto.subtle.importKey(
       "jwk",
@@ -178,7 +183,7 @@ class KeyStorage {
     );
     this.encryptionKey = importedKey;
     await this.removeAllKeys();
-  
+
     for (let tempKey of data.keys) {
       const keyInfo = {
         id: tempKey.id,
@@ -189,7 +194,6 @@ class KeyStorage {
       await this.addKey(keyInfo);
     }
   }
-  
 
   async removeAllKeys() {
     return new Promise((resolve, reject) => {
@@ -208,7 +212,10 @@ class KeyStorage {
 
   async addKey(keyInfo) {
     return new Promise(async (resolve, reject) => {
-      const encryptedApikey = await this.encrypt(keyInfo.key, this.encryptionKey);
+      const encryptedApikey = await this.encrypt(
+        keyInfo.key,
+        this.encryptionKey
+      );
       keyInfo.key = encryptedApikey;
       const request = indexedDB.open(this.dbName);
       request.onsuccess = (event) => {
@@ -231,35 +238,35 @@ class KeyStorage {
         const transaction = db.transaction(this.objectStoreName);
         const objectStore = transaction.objectStore(this.objectStoreName);
         const keys = [];
-        
+
         objectStore.openCursor().onsuccess = (event) => {
           const cursor = event.target.result;
           if (cursor) {
             keys.push(cursor.value);
             cursor.continue();
           } else {
-            resolve(keys)
+            resolve(keys);
           }
         };
-      }
-    })
+      };
+    });
   }
 
   async getKeys() {
     return new Promise((resolve, reject) => {
       try {
         const request = indexedDB.open(this.dbName);
-  
+
         request.onerror = (event) => {
-          reject(new Error('Unable to open DB'));
+          reject(new Error("Unable to open DB"));
         };
-  
+
         request.onsuccess = (event) => {
           const db = event.target.result;
           const transaction = db.transaction(this.objectStoreName);
           const objectStore = transaction.objectStore(this.objectStoreName);
           const keys = [];
-  
+
           objectStore.openCursor().onsuccess = (event) => {
             const cursor = event.target.result;
             if (cursor) {
@@ -267,26 +274,29 @@ class KeyStorage {
               cursor.continue();
             }
           };
-  
+
           transaction.oncomplete = async () => {
             try {
               for (const key of keys) {
-                key.key = await this.decrypt(key.key.ciphertext, key.key.iv, this.encryptionKey);
+                key.key = await this.decrypt(
+                  key.key.ciphertext,
+                  key.key.iv,
+                  this.encryptionKey
+                );
               }
               resolve(keys);
             } catch (error) {
-              reject(new Error('Decrypt error:' + error));
+              reject(new Error("Decrypt error:" + error));
             }
           };
-  
+
           transaction.onerror = () => reject(transaction.error);
         };
       } catch (error) {
-        reject(new Error('DB Operation error:' + error));
+        reject(new Error("DB Operation error:" + error));
       }
     });
   }
-  
 
   async removeKey(id) {
     return new Promise((resolve, reject) => {

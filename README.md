@@ -1,6 +1,7 @@
 <img src="https://github.com/jwjoel/KeyChain/blob/main/assets/header.png" alt="banner" width="80%"/>
 
 # KeyChain
+
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
 > Keep your API Keys organized and secure.
@@ -50,31 +51,30 @@ Search for KeyChain in the Google Chrome App Store or
 ## Data Security
 
 Data security is at the core of KeyChain. Using AES-GCM encryption, API keys are stored as ciphertext in IndexedDB. All keys are saved locally, so make sure to export your API keys before changing environments. The exported file format is:
-``` json
+
+```json
 {
-    "keys":[
-        {
-            "id":1,
-            "source":"Github",
-            "key":{
-                "ciphertext":"6DR7vprpOw5C78kaTRLT7p1eIQ==",
-                "iv":"w5JOmjtrvfcpo+JH"
-            },
-            "expiration":1687167800822
-        }
-    ],
-    "encryptionKey":{
-        "alg":"A256GCM",
-        "ext":true,
-        "k":"HyrZg2KSkBCBVbl3n6qxgb2MwRIX8l6EBCBstkhITCQ",
-        "key_ops":[
-            "encrypt",
-            "decrypt"
-        ],
-        "kty":"oct"
+  "keys": [
+    {
+      "id": 1,
+      "source": "Github",
+      "key": {
+        "ciphertext": "6DR7vprpOw5C78kaTRLT7p1eIQ==",
+        "iv": "w5JOmjtrvfcpo+JH"
+      },
+      "expiration": 1687167800822
     }
+  ],
+  "encryptionKey": {
+    "alg": "A256GCM",
+    "ext": true,
+    "k": "HyrZg2KSkBCBVbl3n6qxgb2MwRIX8l6EBCBstkhITCQ",
+    "key_ops": ["encrypt", "decrypt"],
+    "kty": "oct"
+  }
 }
 ```
+
 API keys are stored as encrypted ciphertext in base64 format. You can separate the encryption key and API keys as needed to ensure maximum security. Additionally, keys added to KeyChain are not directly displayed on the interface and cannot be edited. To modify a key, you must first delete the original API key and then add a new one.
 
 ## Usage
@@ -100,6 +100,7 @@ https://github.com/jwjoel/KeyChain/assets/25562443/85afd114-52c0-4862-b57d-715b8
 ## Contributing
 
 Feel free to open issues or submit pull requests for bug fixes or feature requests.
+
 <!--
 ### Contributors
 
@@ -107,6 +108,7 @@ Feel free to open issues or submit pull requests for bug fixes or feature reques
 <img src="https://contrib.rocks/image?repo=jwjoel/KeyChain" />
 </a>
 -->
+
 ## License
 
 This project is released under the [MIT License](https://opensource.org/licenses/MIT).
