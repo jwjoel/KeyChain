@@ -20,8 +20,8 @@ body {
 
 .form-wrapper {
   margin: 0 auto;
-  max-width: 550px;
-  width: 100%;
+  width: 270px;
+  height: 470px;
   background: white;
 }
 
@@ -74,14 +74,14 @@ body {
   margin: 0;
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 35px;
 }
 
 .steps li {
     cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
@@ -155,24 +155,41 @@ body {
 }
 
 .form-step-1 {
-  max-height: 350px;
+  max-height: 365px;
   overflow-y: overlay;
-  display: none;
+}
+
+.form-step-2 {
+  margin-left: 50px;
 }
 
 .form-step-1::-webkit-scrollbar {
   width: 0px;
 }
 
-.form-step-2,
-.form-step-3 {
-  display: none;
+.form-step-1,
+.form-step-2 {
+  position: absolute;
+  width: 270px;
+  transition: transform 0.5s ease;
+  transform: translateX(0%);
+  transition: transform 0.5s all;
 }
 
-.form-step-1.active,
-.form-step-2.active,
-.form-step-3.active {
-  display: block;
+.form-step-1.active {
+  transform: translateX(0%);
+}
+
+.form-step-1:not(.active) {
+  transform: translateX(-120%);
+}
+
+.form-step-2.active {
+  margin-left: 0px;
+}
+
+.form-step-2:not(.active) {
+  transform: translateX(100%);
 }
 
 .form-btn-wrapper {
@@ -356,4 +373,33 @@ body {
   
   #expiration {
     transition: all 0.3s ease;
+  }
+
+  .import-export-buttons {
+    position: fixed;
+    display: flex;
+    bottom: -60px;
+    gap: 10px;
+
+  }
+
+  .settings-btn-wrapper {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .settings-btn-wrapper button {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #6a64f1;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .settings-btn-wrapper :hover {
+    filter: brightness(0.8);
+    transition: 0.5s all;
   }

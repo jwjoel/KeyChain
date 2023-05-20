@@ -73,13 +73,26 @@ document.addEventListener("DOMContentLoaded", async () => {
 async function displayKeys() {
   const keysList = document.getElementById("keys-list");
   const keys = await keyStorage.getKeys();
+  console.log("main", keys)
   keys.reverse();
   keysList.innerHTML = "";
   if (keys.length === 0) {
     // Display the empty message when there are no keys
     const emptyMessage = document.createElement("div");
-    emptyMessage.className = "empty-message";
-    emptyMessage.textContent = "No keys to display";
+    emptyMessage.className = "key-details";
+    emptyMessage.innerHTML = `
+    <div class="key-header">
+    <div class="key-content">
+      <h5>Welcome to Key Chain</h5>
+    </div>
+    </div>
+    <ul class="copy-ul">
+      <li>
+          <img src="assets/calendar.svg" alt="Copy" class="copy-icon">
+          Add your first API key
+      </li>
+    </ul>
+  `;
     keysList.appendChild(emptyMessage);
   } else {
     keys.forEach((key) => {
