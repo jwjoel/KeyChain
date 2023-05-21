@@ -34,7 +34,7 @@ Search for [KeyChain](https://chrome.google.com/webstore/detail/keychain/oahaomm
 1. Clone the repository or download the source code:
 
    ```
-   git clone https://github.com/yourusername/keychain.git
+   git clone https://github.com/jwjoel/keychain.git
    ```
 
 2. In your browser, open the Extensions page:
